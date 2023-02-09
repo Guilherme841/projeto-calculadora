@@ -8,7 +8,6 @@ for (const button of botoes) {
     button.addEventListener('click', function() {
         arrValues.push(this.value);
         display.value += this.value;
-        // console.log(arrValues)
     });
 };
 
@@ -17,18 +16,17 @@ for (const operador of operadores) {
         if (this.value === '+') {
             display.value = '';
             arrValues1 = arrValues;
+            arrValues2 = arrValues1.join('');
+            arrValues4 = Number(arrValues2)
+            arrValues3 = arrValues.join('');
+            arrValues5 = Number(arrValues3)
             arrValues = [];
-            console.log(arrValues1);
         }
         if (this.value === '=') {
-            console.log(arrValues)
-            let soma1 = arrValues1;
-            let soma2 = arrValues;
-            function somar() {}
-            // let total = soma1 + soma2
-            display.value = total;
-            console.log(total)
-            
+            let soma = 0;
+            soma = arrValues4 + arrValues5;
+            display.value = soma;
         }
+        
     });
 };

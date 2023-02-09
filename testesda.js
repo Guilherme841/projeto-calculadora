@@ -17,8 +17,18 @@
 // console.log(soma2);
 // console.log(total);
 
-numeros = [1,3,5,6]
-numeros2 = [2,3,5,6]
+numeros = [2,5,0,0]
+numeros2 = [2,5,0,0]
+numeros3 = numeros.join('')
+numeros4 = numeros2.join('')
+numeros5 = Number(numeros3)
+numeros6 = Number(numeros4)
+
+
+somaTeste = 0;
+
+somaTeste = numeros5 + numeros6
+console.log(somaTeste)
 
 var resultados = [];
 for(var id in numeros){
@@ -35,3 +45,4 @@ for(var id in numeros){
  }
 console.log(resultados);
 console.log(soma);
+console.log(numeros3)
