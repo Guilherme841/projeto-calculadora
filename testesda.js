@@ -46,3 +46,24 @@ for(var id in numeros){
 console.log(resultados);
 console.log(soma);
 console.log(numeros3)
+
+// for (const operador of operadores) {
+//     operador.addEventListener('click', function() {
+        // if (this.value === '+') {
+        //     display.value = '';
+        //     arrValues1 = arrValues;
+        //     arrValues2 = arrValues1.join('');
+        //     arrValues = [];
+        // }
+        // if (this.value === '=') {
+        //     arrValues4 = Number(arrValues2)
+        //     arrValues3 = arrValues.join('');
+        //     arrValues5 = Number(arrValues3)
+        //     let soma = 0;
+        //     soma = arrValues4 + arrValues5;
+        //     display.value = soma;
+        // }
+//     });
+// };
+
+// Seleção de operadores/funções/eventos 
