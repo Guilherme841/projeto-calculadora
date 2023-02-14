@@ -9,13 +9,27 @@ let result = 0;
 
 for (const button of botoes) {
     button.addEventListener('click', function() {
-        if (operator === '') {
-            arrValues1.push(this.value);
-            display.value += this.value;
+        if (result) {
+            display.value = '';
+            result = 0;
+        } 
+        if (operator === '') { 
+            if (display.value.length < 15) {
+                arrValues1.push(this.value);
+                display.value += this.value; 
+            }
+            if (arrValues1.length > 15) {
+                arrValues1.shift()
+            }
         } else {
-            arrValues2.push(this.value);
-            display.value += this.value;
-        }        
+            if (display.value.length < 15) {
+                arrValues2.push(this.value);
+                display.value += this.value;
+            }
+            if (arrValues2.length > 15) {
+                arrValues2.shift()
+            }
+        }
     });
 };
 
@@ -35,7 +49,6 @@ for (const operador of operadores) {
             arrValues1 = [];
             arrValues2 = [];
             operator = '';
-
         } if (this.value === '-') {
             operator = '-';
             display.value = '';
@@ -51,24 +64,40 @@ for (const operador of operadores) {
             operator = '/';
             display.value = '';
         } if (this.value === '=' && operator === '/') {
-            let divisao = 0;
-            divisao = values1 / values2;
-            display.value = divisao.toFixed(1);
-            console.log(divisao);
+            if (values2 === 0) {
+                alert('Erro: Divisão por zero.');
+                display.value = ''
+            } else {
+                let divisao = 0;
+                divisao = values1 / values2;
+                display.value = divisao.toFixed(1);
+                result = divisao;
+            }
+            arrValues1 = [];
+            arrValues2 = [];
+            operator = '';
         } if (this.value === '%') {
             operator = '%';
             display.value = '';
         } if (this.value === '=' && operator === '%') {
             let porcent = 0;
-            porcent = values1 % values2
-            display.value = porcent
+            porcent = values1 % values2;
+            display.value = porcent;
+            result = porcent;
+            arrValues1 = [];
+            arrValues2 = [];
+            operator = '';
         } if (this.value === 'X') {
             operator = 'X';
             display.value = '';
         } if (this.value === '=' && operator === 'X') {
             let multi = 0;
-            multi = values1 * values2
-            display.value = multi
+            multi = values1 * values2;
+            display.value = multi;
+            result = multi;
+            arrValues1 = [];
+            arrValues2 = [];
+            operator = '';
         }
     });
 };
