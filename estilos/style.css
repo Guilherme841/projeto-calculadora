@@ -47,6 +47,7 @@ main {
 .teclado {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     margin: auto;
     margin-top: 50px;
     width: 90%;

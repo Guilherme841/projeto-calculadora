@@ -5,13 +5,13 @@ const display = document.getElementById('display');
 let arrValues1 = [];
 let arrValues2 = [];
 let operator = '';
-let result = 0;
+let result = null;
 
 for (const button of botoes) {
     button.addEventListener('click', function() {
         if (result) {
             display.value = '';
-            result = 0;
+            result = null;
         } 
         if (operator === '') { 
             if (display.value.length < 15) {
