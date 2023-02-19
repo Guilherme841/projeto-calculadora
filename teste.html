@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <button id="botao">Clique aqui!</button>
-    <p id="requisiçao">Resultado da requisição</p>
+  </head>
+  <body>
+    <input type="number" name="" id="n1" />
+    <input type="number" name="" id="n2" />
+    <div id="re">Resultado</div>
+    <button id="botao">+</button>
     <script>
-        const botao = document.getElementById('botao');
-        botao.addEventListener('click', async function() {
-            const promessa = new Promise((resolve, reject) => {
-                window.setTimeout(() => {
-                resolve('Requisição feita com sucesso!');
-                }, 3000);
-            })
-            let resolved = await promessa;
-            let requisiçao = document.getElementById('requisiçao');
-            requisiçao.innerHTML = resolved;
-        });
+      const n1 = document.getElementById("n1");
+      const n2 = document.getElementById("n2");
+      const resultado = document.getElementById("re");
+      const botao = document.getElementById("botao");
+
+      result = null;
+
+      botao.addEventListener("click", function () {
+        if (!result) {
+          var n1f = Number(n1.value);
+          var n2f = Number(n2.value);
+          let soma = 0;
+          soma = n1f + n2f;
+          result = soma;
+          resultado.innerHTML = soma;
+          console.log(result)
+        }
+         else if (result) {
+          const n2f = Number(n2.value);
+          const soma = result + n2f;
+          result = soma;
+          resultado.innerHTML = result;
+          console.log(result)
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
