@@ -67,3 +67,4 @@ console.log(numeros3)
 // };
 
 // Seleção de operadores/funções/eventos 
+

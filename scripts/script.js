@@ -11,11 +11,20 @@ let result = null;
 for (const button of botoes) {
   button.addEventListener("click", function () {
     if (result) {
-      display.innerHTML = "";
-      arrValues1 = [result];
-      arrValues2 = [];
-      result = null;
-      type = "";
+      if (type === "number") {
+        display.innerHTML = "";
+        arrValues1 = [];
+        arrValues2 = [];
+        result = null;
+        operator = "";
+        type = "";
+      } else if (type === "operator") {
+        arrValues1 = [result];
+        arrValues2 = [];
+        result = null;
+        display.innerHTML = result;
+        type = "number";
+      }
     }
     if (this.value === "AC") {
       arrValues1 = [];
@@ -38,6 +47,7 @@ for (const button of botoes) {
         }
         if (arrValues1.length > 15) {
           arrValues1.shift();
+          display.innerText = display.innerText.slice(0, 15);
         }
         type = "number";
       } else {
@@ -50,6 +60,7 @@ for (const button of botoes) {
         }
         if (arrValues2.length > 15) {
           arrValues2.shift();
+          display.innerText = display.innerText.slice(0, 15);
         }
         type = "number";
       }
@@ -78,6 +89,10 @@ for (const operador of operadores) {
       arrValues1 = [];
       arrValues2 = [];
       operator = "";
+    }
+    if (result && this.value !== "=") {
+      operator = this.value;
+      type = "operator";
     }
     if (this.value === "-") {
       operator = "-";
