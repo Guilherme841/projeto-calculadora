@@ -102,8 +102,12 @@ for (const operador of operadores) {
     if (this.value === "=" && operator === "+") {
       let soma = 0;
       soma = values1 + values2;
-      display.innerHTML = soma;
       result = soma;
+      if (result.toString().length > 15) {
+        display.innerHTML = result.toExponential(6);
+      } else {
+        display.innerHTML = soma;
+      }
       arrValues1 = [];
       arrValues2 = [];
       operator = "";
@@ -124,8 +128,12 @@ for (const operador of operadores) {
     if (this.value === "=" && operator === "-") {
       let sub = 0;
       sub = values1 - values2;
-      display.innerHTML = sub;
       result = sub;
+      if (result.toString().length > 15) {
+        display.innerHTML = parseFloat(result.toFixed(6));
+      } else {
+        display.innerHTML = parseFloat(result);
+      }
       arrValues1 = [];
       arrValues2 = [];
       operator = "";
@@ -159,8 +167,12 @@ for (const operador of operadores) {
       } else {
         let porcent = 0;
         porcent = values1 % values2;
-        display.innerHTML = porcent;
         result = porcent;
+        if (result.toString().length > 15) {
+          display.innerHTML = result.toExponential(6);
+        } else {
+          display.innerHTML = porcent;
+        }
       }
       arrValues1 = [];
       arrValues2 = [];
@@ -173,8 +185,12 @@ for (const operador of operadores) {
     if (this.value === "=" && operator === "X") {
       let multi = 0;
       multi = values1 * values2;
-      display.innerHTML = multi;
       result = multi;
+      if (result.toString().length > 15) {
+        display.innerHTML = result.toExponential(6);
+      } else {
+        display.innerHTML = multi;
+      }
       arrValues1 = [];
       arrValues2 = [];
       operator = "";
