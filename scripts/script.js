@@ -31,6 +31,8 @@ for (const button of botoes) {
       arrValues2 = [];
       display.innerHTML = "";
       operator = "";
+      result = null;
+      type = "";
     }
     if (type !== "operator") {
       if (operator === "") {
@@ -77,6 +79,22 @@ for (const operador of operadores) {
   operador.addEventListener("click", function () {
     values1 = parseFloat(arrValues1.join("").replace(",", "."));
     values2 = parseFloat(arrValues2.join("").replace(",", "."));
+    if (this.value === operator) {
+      return;
+    }
+    if (
+      this.value !== "=" &&
+      arrValues1.length === 1 &&
+      arrValues1[0] === ","
+    ) {
+      return;
+    } else if (
+      this.value !== "=" &&
+      arrValues1.length === 1 &&
+      arrValues1[0] === ","
+    ) {
+      return;
+    }
     if (this.value === "+") {
       operator = "+";
       display.innerHTML = "";
@@ -93,6 +111,11 @@ for (const operador of operadores) {
     if (result && this.value !== "=") {
       operator = this.value;
       type = "operator";
+    }
+    if (this.value === "=" && arrValues1.length === 0) {
+      return;
+    } else if (this.value === "=" && arrValues2.length === 0) {
+      return;
     }
     if (this.value === "-") {
       operator = "-";
@@ -130,10 +153,15 @@ for (const operador of operadores) {
       display.innerHTML = "";
     }
     if (this.value === "=" && operator === "%") {
-      let porcent = 0;
-      porcent = values1 % values2;
-      display.innerHTML = porcent;
-      result = porcent;
+      if (values2 === 0) {
+        alert("Erro: Divisão por zero.");
+        display.innerHTML = "";
+      } else {
+        let porcent = 0;
+        porcent = values1 % values2;
+        display.innerHTML = porcent;
+        result = porcent;
+      }
       arrValues1 = [];
       arrValues2 = [];
       operator = "";
