@@ -10,7 +10,7 @@ let result = null;
 
 for (const button of botoes) {
   button.addEventListener("click", function () {
-    if (result) {
+    if (result || result === 0) {
       if (type === "number") {
         display.innerHTML = "";
         arrValues1 = [];
@@ -22,7 +22,6 @@ for (const button of botoes) {
         arrValues1 = [result];
         arrValues2 = [];
         result = null;
-        display.innerHTML = result;
         type = "number";
       }
     }
@@ -59,6 +58,7 @@ for (const button of botoes) {
         } else if (this.value !== "," && this.value !== "=") {
           arrValues2.push(this.value);
           display.innerHTML += this.value;
+          console.log(arrValues2);
         }
         if (arrValues2.length > 15) {
           arrValues2.shift();
