@@ -82,6 +82,9 @@ for (const operador of operadores) {
     if (this.value === operator) {
       return;
     }
+    if (this.value === "=" && isNaN(values1)) {
+      return;
+    }
     if (
       this.value !== "=" &&
       arrValues1.length === 1 &&
@@ -100,6 +103,9 @@ for (const operador of operadores) {
       display.innerHTML = "";
     }
     if (this.value === "=" && operator === "+") {
+      if (isNaN(values2)) {
+        return;
+      }
       let soma = 0;
       soma = values1 + values2;
       result = soma;
@@ -126,6 +132,9 @@ for (const operador of operadores) {
       display.innerHTML = "";
     }
     if (this.value === "=" && operator === "-") {
+      if (isNaN(values2)) {
+        return;
+      }
       let sub = 0;
       sub = values1 - values2;
       result = sub;
@@ -161,6 +170,9 @@ for (const operador of operadores) {
       display.innerHTML = "";
     }
     if (this.value === "=" && operator === "%") {
+      if (isNaN(values2)) {
+        return;
+      }
       if (values2 === 0) {
         alert("Erro: Divisão por zero.");
         display.innerHTML = "";
@@ -183,6 +195,9 @@ for (const operador of operadores) {
       display.innerHTML = "";
     }
     if (this.value === "=" && operator === "X") {
+      if (isNaN(values2)) {
+        return;
+      }
       let multi = 0;
       multi = values1 * values2;
       result = multi;
